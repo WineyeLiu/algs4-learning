@@ -1,11 +1,16 @@
 package top.liuwenai.algs4.day6;
 
 import java.util.Iterator;
-
+/**
+ * 可迭代的自动调整大小的栈
+ * @author mistw
+ *
+ * @param <Item>
+ */
 public class ResizingArrayStack <Item> implements Iterable<Item> {
 	
 	@SuppressWarnings("unchecked")
-	private Item[] a = (Item[]) new Object[1];
+	private Item[] a = (Item[]) new Object[1];// 注意 java中不能直接创建泛型数组
 	private int N;
 	public boolean isEmpty() {
 		return N==0;
@@ -32,7 +37,7 @@ public class ResizingArrayStack <Item> implements Iterable<Item> {
 	
 	public Item pop() {
 		Item item = a[--N];
-		a[N] = null;
+		a[N] = null; // 避免对象游离
 		if (N > 0 && N ==a.length/4) {
 			resize(a.length/2);
 		}
