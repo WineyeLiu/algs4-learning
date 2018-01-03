@@ -8,7 +8,7 @@ public class Selection extends AbstractSort {
 	
 	public static Selection getInstance() {
 		if(single==null) {
-			return new Selection();
+			single = new Selection();
 		}
 		return single;
 	}
@@ -17,7 +17,7 @@ public class Selection extends AbstractSort {
 	@Override
 	public void sort(Comparable[] a) {
 		int n = 0;
-		for (int i = 0; i<a.length; i++) {
+		for (int i = 0; i<a.length && n<a.length; i++) {
 			int minIdx = n;
 			for (int j = n; j < a.length; j++) {
 				if(a[j].compareTo(a[n])<0) {
@@ -25,6 +25,7 @@ public class Selection extends AbstractSort {
 				}
 			}
 			exch(a, n, minIdx);
+			n++;
 		}
 	}
 
