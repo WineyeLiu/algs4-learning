@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import top.liuwenai.algs4.sort.Insertion;
 import top.liuwenai.algs4.sort.Selection;
+import top.liuwenai.algs4.sort.Shell;
 
 public class TestSort {
 
@@ -33,6 +34,17 @@ public class TestSort {
 		
 		Insertion.getInstance().sort(a);
 		Insertion.getInstance().show(a);
+	}
+	
+	@Test
+	public void testShellSort() {
+		String [] a = new String[15];
+		for (int i = 0; i < a.length; i++) {
+			a[i] = String.valueOf(14-i);
+		}
+		
+		Shell.getInstance().sort(a);
+		Shell.getInstance().show(a);
 	}
 
 }
