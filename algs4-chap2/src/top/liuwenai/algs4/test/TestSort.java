@@ -7,6 +7,7 @@ import org.junit.Test;
 import top.liuwenai.algs4.sort.Insertion;
 import top.liuwenai.algs4.sort.Selection;
 import top.liuwenai.algs4.sort.Shell;
+import top.liuwenai.algs4.sort.Merge;
 
 public class TestSort {
 
@@ -45,6 +46,17 @@ public class TestSort {
 		
 		Shell.getInstance().sort(a);
 		Shell.getInstance().show(a);
+	}
+	
+	@Test
+	public void testMergeSort() {
+		String [] a = new String[15];
+		for (int i = 0; i < a.length; i++) {
+			a[i] = String.valueOf(14-i);
+		}
+		
+		Merge.getInstance().sort(a);
+		Merge.getInstance().show(a);
 	}
 
 }
